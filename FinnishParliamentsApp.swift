@@ -24,12 +24,12 @@ struct FinnishParliamentsApp: App {
                         Label("Favorites", systemImage: "star.fill")
                     }
 
-                MPs_List()
+               PreferencesView()
                     .tabItem {
                         Label("Preferences", systemImage: "list.bullet")
                     }
             }
-            .environmentObject(modelData) // Make sure to pass it down the environment
+            .environmentObject(modelData)
         }
     }
 }

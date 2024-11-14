@@ -1,7 +1,5 @@
 import SwiftUI
 
-import SwiftUI
-
 struct MPs_List: View {
     @EnvironmentObject private var modelData: ModelData  // Use EnvironmentObject instead of StateObject
     @State private var selectedParty: String? = nil

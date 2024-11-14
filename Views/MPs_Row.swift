@@ -22,8 +22,8 @@ struct MPs_Row: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 50, height: 50)
-                .clipShape(Circle()) // Makes the image circular
-                .overlay(Circle().stroke(Color.white, lineWidth: 4)) // Optional: Add border around the image
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 4))
             
             // Display name and party information
             VStack(alignment: .leading) {

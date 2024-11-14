@@ -11,22 +11,30 @@ struct FavoriteMPsView: View {
 
     var body: some View {
         List {
-            // Display favorite parties
+            // Display favorite parties with logo
             if !modelData.favoriteParties.isEmpty {
                 Section(header: Text("Favorite Parties")) {
                     ForEach(modelData.favoriteParties.sorted(), id: \.self) { party in
-                        Text(party)
+                        HStack {
+                            // Display party logo from assets (same as MPs_Row)
+                            Image(party)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 30, height: 30)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 4)) 
+                            Text(modelData.membersByParty[party]?.first?.fullPartyName ?? party) // Display party name
+                                .font(.headline)
+                        }
                     }
                 }
             }
 
-            // Display favorite MPs without grouping by party
+            // Display favorite MPs using MPs_Row
             if !modelData.favoriteMembers.isEmpty {
                 Section(header: Text("Favorite Members")) {
                     ForEach(modelData.members.filter { modelData.favoriteMembers.contains($0.id) }) { member in
-                        HStack {
-                            Text("\(member.first) \(member.last)")
-                        }
+                        MPs_Row(member: member, favorites: $modelData.favoriteMembers)
                     }
                 }
             }
@@ -35,4 +43,3 @@ struct FavoriteMPsView: View {
         .navigationTitle("Favorites")
     }
 }
-

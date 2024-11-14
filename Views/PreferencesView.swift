@@ -13,14 +13,15 @@ struct PreferencesView: View {
     var body: some View {
         NavigationView {
             List {
-                    NavigationLink(destination: MPs_List()) {
-                        Label("MPs List", systemImage: "list.bullet")
-                    }
+                NavigationLink(destination: PartySelectionView()) {
+                    Label("MPs List", systemImage: "house.fill")
+                }
+                NavigationLink(destination: MPs_List()) {
+                    Label("MPs List", systemImage: "list.bullet")
                 }
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Preferences")
         }
+        .listStyle(InsetGroupedListStyle())
+        .navigationTitle("Preferences")
     }
-
-
+}

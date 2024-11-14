@@ -17,8 +17,8 @@ struct MPs_Detail: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
-                .clipShape(Circle()) // Makes the image circular
-                .overlay(Circle().stroke(Color.white, lineWidth: 4)) // Optional: Add border around the image
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.white, lineWidth: 4))
             
             VStack(alignment: .leading) {
                 HStack {
@@ -40,7 +40,7 @@ struct MPs_Detail: View {
                     Spacer()
                     
                     // Display the full party name instead of shorthand
-                    Text(member.fullPartyName)  // Displaying the full name of the party
+                    Text(member.fullPartyName)
                         .font(.subheadline)
                         .fontWeight(.bold)
                         .foregroundColor(.blue)
